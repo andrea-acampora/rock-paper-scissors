@@ -1,0 +1,19 @@
+{
+  "name": "rock-paper-scissors",
+  "version": "1.0.0",
+  "description": "Simple implementation of Rock Paper Scissors game.",
+  "license": "MIT",
+  "author": "Andrea Acampora",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tsc"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "jest": "^30.0.5",
+    "ts-jest": "^29.4.0",
+    "typescript": "^5.8.3",
+    "vite": "^7.0.5"
+  }
+}
