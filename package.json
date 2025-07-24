@@ -6,14 +6,17 @@
   "author": "Andrea Acampora",
   "type": "commonjs",
   "main": "index.js",
+  "homepage": "https://andrea-acampora.github.io/rock-paper-scissors",
   "scripts": {
-    "build": "npx tsc"
+    "dev": "vite",
+    "build": "vite build",
+    "test": "jest"
   },
   "devDependencies": {
     "@types/jest": "^30.0.0",
     "jest": "^30.0.5",
     "ts-jest": "^29.4.0",
     "typescript": "^5.8.3",
-    "vite": "^7.0.5"
+    "vite": "^7.0.6"
   }
 }
