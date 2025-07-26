@@ -17,8 +17,10 @@ jobs:
           node-version: 22
       - name: Install dependencies
         run: npm install
-      - name: Run tests
+      - name: Run Unit Tests
         run: npm run test
+      - name: Run E2E Tests
+        run: npm run test:e2e
       - name: Build
         run: npm run build
       - name: Deploy
