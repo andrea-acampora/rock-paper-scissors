@@ -1,18 +1,180 @@
 <!DOCTYPE html>
 <html lang="it">
-<head>
-  <meta charset="UTF-8" />
-  <title>Rock Paper Scissors</title>
-  <script type="module" crossorigin src="/rock-paper-scissors/assets/index-B5Qt9EMX.js"></script>
-</head>
-<body>
-  <h1>Rock Paper Scissors</h1>
-  <div>
-    <button onclick="play('rock')">Rock</button>
-    <button onclick="play('paper')">Paper</button>
-    <button onclick="play('scissors')">Scissors</button>
-    <button onclick="playCPU()">CPU vs CPU</button>
-  </div>
-  <p id="result"></p>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Rock Paper Scissors</title>
+    <style>
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: #f2f8f8;
+        margin: 0;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .game-container {
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        padding: 2rem;
+        width: 100%;
+        max-width: 600px;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .game-mode {
+        display: flex;
+        justify-content: space-around;
+        gap: 1rem;
+        align-items: center;
+      }
+
+      .game-mode label {
+        font-weight: bold;
+        padding-right: 10px;
+      }
+      
+      .player-name {
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 15px;
+      }
+
+      .player-name-area {
+        text-align: center;
+      }
+
+      select {
+        padding: 0.5rem;
+        font-size: 1rem;
+        border-radius: 8px;
+        border: 2px solid #cbcbcb;
+      }
+
+      .move-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1.2rem;
+      }
+
+      .move-btn {
+        padding: 1rem;
+        font-size: 2rem;
+        background: #f2fbfb;
+        color: white;
+        border: 1px solid #d3ebfe;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.4s ease;
+        min-width: 80px;
+      }
+
+      .move-btn:hover:enabled {
+        background: #bbdefb;
+        transform: translateY(-5px);
+      }
+
+      .move-btn:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+
+      .move-btn.selected {
+        background: #64b5f6;
+        border-color: #3e3e3e;
+        color: white;
+        font-weight: bold;
+        transform: scale(1.2);
+      }
+
+      #start-btn,
+      #reset-btn {
+        justify-content: center;
+        text-align: center;
+        font-weight: bold;
+        border-radius: 10%;
+        padding: 0.85rem;
+        background: #1188c9;
+        color: white;
+        border: 1px solid #636363;
+        cursor: pointer;
+      }
+
+      .game-controls {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+      }
+
+      .game-info {
+        text-align: center;
+        padding: 1rem;
+        background: #f2f8f8;
+        border-radius: 8px;
+        border-left: 4px solid #2196F3;
+      }
+
+      .move {
+        text-align: center;
+      }
+
+      #result {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        justify-content: center;
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #333;
+        padding: 1rem;
+        background: #f2f8f8;
+        border-radius: 8px;
+        border-left: 4px solid #97d0f3;
+        min-height: 2rem;
+      }
+    </style>
+    <script type="module" crossorigin src="/rock-paper-scissors/assets/index-C0DptwHx.js"></script>
+  </head>
+  <body>
+    <h1>Sasso Carta Forbici</h1>
+    <div class="game-container">
+      <div class="game-mode">
+        <div>
+          <label for="game-mode">Modalità di gioco:</label>
+          <select id="game-mode">
+            <option value="HUMAN_VS_COMPUTER">Umano vs Computer</option>
+            <option value="COMPUTER_VS_COMPUTER">Computer vs Computer</option>
+          </select>
+        </div>
+      </div>
+      <div class="game-controls">
+        <button id="start-btn">Gioca</button>
+      </div>
+      <div id="player1-move" class="player-section">
+        <div class="player-name">Giocatore 1</div>
+        <div class="move-buttons">
+          <button class="move-btn" id="player1-rock-btn" data-player="1" data-choice="ROCK">🪨</button>
+          <button class="move-btn" id="player1-paper-btn" data-player="1" data-choice="PAPER">📄</button>
+          <button class="move-btn" id="player1-scissors-btn" data-player="1" data-choice="SCISSORS">✂️</button>
+        </div>
+      </div>
+      <div id="player2-move" class="player-section">
+        <div class="player-name">Giocatore 2</div>
+      <div class="move-buttons">
+        <button class="move-btn" data-player="2" data-choice="ROCK" disabled>🪨</button>
+        <button class="move-btn" data-player="2" data-choice="PAPER" disabled>📄</button>
+        <button class="move-btn" data-player="2" data-choice="SCISSORS" disabled>✂️</button>
+      </div>
+      </div>
+      <div id="result"></div>
+       <div class="game-controls">
+        <button id="reset-btn">Gioca ancora</button>
+      </div>
+    </div>
+
+  </body>
 </html>
