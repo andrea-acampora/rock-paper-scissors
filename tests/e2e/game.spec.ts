@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 
 test.describe("E2E", () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto("/");
+    await page.goto("http://localhost:4173/");
   });
 
   test("Test human vs computer mode", async ({ page }) => {
